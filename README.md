@@ -12,9 +12,9 @@ containers.
 
 ## Docs
 
-- Initial Run
-- Backup and Restoring
-- Using Vagrant and docker machine
+- [Initial Run](docs/run.md)
+- [Backup and Restoring](docs/backups.md)
+- [Using Vagrant and docker machine](docs/vagrant.md)
 
 ## License
 
