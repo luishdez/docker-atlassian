@@ -1,0 +1,67 @@
+hostname: coreos-dev
+ssh_authorized_keys:
+  - ssh-rsa <insert your key here>
+users:
+  - name: luis
+    groups:
+      - sudo
+      - docker
+    coreos-ssh-import-github: <insert your github username here>
+coreos:
+  etcd:
+    name: node001
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
+    # specify the initial size of your cluster with ?size=X
+    discovery: https://discovery.etcd.io/<token>
+    addr: $public_ipv4:4001
+    peer-addr: $public_ipv4:7001
+  fleet:
+    public-ip: $public_ipv4
+    metadata: region=rbx
+units:
+  - name: etcd.service
+    command: start
+  - name: fleet.service
+    command: start
+  - name: settimezone.service
+    command: start
+    content: |
+      [Unit]
+      Description=Set the timezone
+      [Service]
+      ExecStart=/usr/bin/timedatectl set-timezone UTC
+      RemainAfterExit=yes
+      Type=oneshot
+  - name: backup-atlassian.service
+    content: |
+      [Unit]
+      Description=Prints date into /tmp/date file
+
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/bin/sh -c '/usr/bin/date >> /tmp/date'
+  - name: backup-atlassian.timer
+    command: start
+    content: |
+      [Unit]
+      Description=Run backup-atlassian.service daily
+
+      [Timer]
+      OnCalendar=daily
+      Persistent=true
+write_files:
+  - path: /etc/resolv.conf
+    permissions: 0644
+    owner: root
+    content: |
+      nameserver 8.8.8.8
+  - path: /etc/ntp.conf
+    content: |
+      # Common pool
+      server 0.pool.ntp.org
+      server 1.pool.ntp.org
+      # - Allow limited rate time queries only
+      # - Allow all local queries (IPv4, IPv6)
+      restrict default nomodify nopeer noquery limited kod
+      restrict 127.0.0.1
+      restrict [::1]

@@ -1,0 +1,4 @@
+.vagrant
+.env
+.env-backup
+cloud-config.yml
