@@ -1,6 +1,6 @@
 # Docker Atlassian for JIRA, Confluence
 
-A docker-compose orquestation for JIRA Software and Confluence based on docker
+A docker-compose orchestration for JIRA Software and Confluence based on docker
 containers.
 
 ## Features
