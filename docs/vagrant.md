@@ -1,4 +1,4 @@
-# Vagrant + Docker Machine
+# Vagrant + Docker Machine
 
 In Mac use this command to manage the host from docker-machine.
 
