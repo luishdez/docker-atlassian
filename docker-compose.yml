@@ -29,6 +29,9 @@ services:
     restart: always
     build: ./jira
     image: wobblecode/docker-jira
+    environment:
+      JAVA_OPTS: -Xms384m -Xmx1024m
+      CATALINA_OPTS: ~
     ports:
       - "8080:8080"
     links:
