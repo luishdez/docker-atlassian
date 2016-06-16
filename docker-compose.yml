@@ -5,7 +5,6 @@ volumes:
   confluence: ~
 services:
   nginx:
-    name: nginx
     image: nginx:latest
     restart: always
     ports:
@@ -17,7 +16,6 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
   confluence:
-    name: confluence
     restart: always
     build: ./confluence
     image: wobblecode/docker-confluence
@@ -40,7 +38,6 @@ services:
       - jira:/var/atlassian/application-data/jira
 
   database:
-    name: database
     restart: always
     image: postgres:9.5
     expose:

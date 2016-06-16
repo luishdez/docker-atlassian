@@ -1,7 +1,7 @@
 ## Run
 
 ```sh
-docker-compose up
+docker-compose -p atlassian up
 ```
 
 ## Run manually
