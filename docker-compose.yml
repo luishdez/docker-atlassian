@@ -26,7 +26,6 @@ services:
     volumes:
       - confluence:/var/atlassian/application-data/confluence
   jira:
-    name: jira
     restart: always
     build: ./jira
     image: wobblecode/docker-jira
