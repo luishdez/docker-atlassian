@@ -11,7 +11,22 @@ docker run --rm \
 -v atlassian_db:/data/db:ro \
 -v atlassian_jira:/data/jira:ro \
 -v atlassian_confluence:/data/confluence:ro \
---name dockup frekele/helicopterizer:latest backup --tarball
+--name backup helicopterizer backup --tarball
+```
+
+## Run with schedule
+
+Define in your .env-backup a var for cron Eg: `CRON_SCHEDULE='0 */12 * * *'`
+
+Then run docker as daemon
+
+```sh
+docker run -d \
+--env-file .env-backup \
+-v atlassian_db:/data/db:ro \
+-v atlassian_jira:/data/jira:ro \
+-v atlassian_confluence:/data/confluence:ro \
+--name backup frekele/helicopterizer backup --tarball
 ```
 
 ## Restore a backup
@@ -28,5 +43,5 @@ docker run --rm \
 -v atlassian_db:/data/db:rw \
 -v atlassian_jira:/data/jira:rw \
 -v atlassian_confluence:/data/confluence:rw \
---name dockup frekele/helicopterizer:latest restore --tarball
+--name backup frekele/helicopterizer:latest restore --tarball
 ```
