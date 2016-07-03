@@ -31,7 +31,7 @@ services:
     image: wobblecode/docker-jira
     environment:
       JAVA_OPTS: -Xms384m -Xmx1024m
-      CATALINA_OPTS: ~
+      CATALINA_OPTS: -Datlassian.plugins.enable.wait=1200
     ports:
       - "8080:8080"
     links:
