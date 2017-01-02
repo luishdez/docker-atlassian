@@ -10,7 +10,7 @@ docker run -it \
 alpine /bin/sh
 ```
 
-## Clear JIRA Cache
+## Clear JIRA Cache
 
 ```sh
 docker run -it \
@@ -22,7 +22,7 @@ alpine rm -rf \
 /data/jira/plugins/.osgi-plugins
 ```
 
-## Clear confluence cache
+## Clear confluence cache
 
 ```sh
 docker run -it \
