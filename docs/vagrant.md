@@ -8,7 +8,7 @@ docker-machine create -d=generic \
 --generic-ssh-key="/Users/$USER/.vagrant.d/insecure_private_key" \
 --generic-ssh-user="core" docker-atlassian
 
-# Export docker envs
+# Export docker envs
 eval "$(docker-machine env docker-atlassian)"
 ```
 Now you can manage docker outside vagrant in your terminal as usual.
