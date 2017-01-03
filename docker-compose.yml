@@ -1,8 +1,8 @@
 version: "2"
 volumes:
-  db: ~
-  jira: ~
-  confluence: ~
+  - db
+  - jira
+  - confluence
 services:
   nginx:
     image: nginx:latest
@@ -24,7 +24,7 @@ services:
     links:
       - database
     volumes:
-      - ${CONFLUENCE_VOLUME}:/var/atlassian/application-data/confluence
+      - confluence:/var/atlassian/application-data/confluence
   jira:
     restart: always
     build: ./jira
@@ -37,13 +37,13 @@ services:
     links:
       - database
     volumes:
-      - ${JIRA_VOLUME}:/var/atlassian/application-data/jira
+      - jira:/var/atlassian/application-data/jira
   database:
     restart: always
     image: postgres:9.5
     expose:
       - 5432
     volumes:
-      - ${DATABASE_VOLUME}:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
       - ./jira/setup-db.sh:/docker-entrypoint-initdb.d/setup-jira-db.sh
       - ./confluence/setup-db.sh:/docker-entrypoint-initdb.d/setup-confluence-db.sh
