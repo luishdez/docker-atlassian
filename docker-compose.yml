@@ -14,7 +14,7 @@ services:
       - jira
       - confluence
     volumes:
-      - ./nginx/nginx-confluence-6.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
   confluence:
     restart: always
     build: ./confluence
