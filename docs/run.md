@@ -6,7 +6,7 @@ Copy from .env.dist to `.env` and config your env vars. Do the same for
 ## Run
 
 ```sh
-docker-compose -p atlassian up
+docker-compose -p atlassian up -d
 ```
 
 ## Build the images
