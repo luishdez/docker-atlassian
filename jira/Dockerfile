@@ -4,7 +4,7 @@ FROM java:8
 ENV JIRA_UID      1000
 ENV JIRA_HOME     /var/atlassian/application-data/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  7.2.0
+ENV JIRA_VERSION  7.2.7
 # Version < 7.2.0 uses other link format
 
 # Install Atlassian JIRA and helper tools and setup initial home
