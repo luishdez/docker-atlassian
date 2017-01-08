@@ -1,0 +1,10 @@
+- name: Setup requirments for docker-atlassian
+  hosts: wobblecode-misc
+  become: yes
+  tasks:
+    - name: Ensure backup cron
+      cron:
+        name: docker-atlassian daily backup
+        minute: "0"
+        hour: "10"
+        job: "cd /var/docker/wobblecode-atlassian && docker run --rm --env-file .env-backup -v wobblecodeatlassian_db:/data/db:ro -v wobblecodeatlassian_jira:/data/jira:ro -v wobblecodeatlassian_confluence:/data/confluence:ro --name backup frekele/helicopterizer:latest backup --tarball"

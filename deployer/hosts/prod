@@ -1,0 +1,2 @@
+[wobblecode-misc]
+wobblecode-misc ansible_ssh_host=wobblecode-misc ansible_user='root'
