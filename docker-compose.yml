@@ -20,7 +20,7 @@ services:
     build: ./confluence
     image: wobblecode/docker-confluence
     ports:
-      - "8090"
+      - "8090:8090"
     links:
       - database
     volumes:
@@ -33,7 +33,7 @@ services:
       JAVA_OPTS: -Xms384m -Xmx1024m
       CATALINA_OPTS: -Datlassian.plugins.enable.wait=1200
     ports:
-      - "8080"
+      - "8080:8080"
     links:
       - database
     volumes:
