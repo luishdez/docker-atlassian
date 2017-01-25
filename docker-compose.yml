@@ -4,17 +4,6 @@ volumes:
   jira: ~
   confluence: ~
 services:
-  nginx:
-    image: nginx:latest
-    restart: always
-    ports:
-      - "8810:80"
-      - "4430:443"
-    links:
-      - jira
-      - confluence
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
   confluence:
     restart: always
     build: ./confluence
