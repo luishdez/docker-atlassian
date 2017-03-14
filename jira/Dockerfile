@@ -4,7 +4,7 @@ FROM java:8
 ENV JIRA_UID      1000
 ENV JIRA_HOME     /var/atlassian/application-data/jira
 ENV JIRA_INSTALL  /opt/atlassian/jira
-ENV JIRA_VERSION  7.3.0
+ENV JIRA_VERSION  7.3.3
 
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
@@ -51,7 +51,7 @@ VOLUME ["/var/atlassian/jira"]
 WORKDIR ${JIRA_HOME}
 
 # Change jira GID
-CMD "usermod -u 1000 jira"
+CMD ["usermod", "-u", "1000", "jira"]
 
 # Run Atlassian JIRA as a foreground process by default.
 CMD ["/opt/atlassian/jira/bin/start-jira.sh", "-fg"]
