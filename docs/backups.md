@@ -38,7 +38,6 @@ If you use another project name just change the name of the mounted volumes.
 ```sh
 docker run --rm \
 --env-file .env-backup \
--e BACKUP_VERSION="2016-06-15T14:13:13Z" \
 -e CLEAN_DATA_BEFORE_RESTORE=false \
 -v atlassian_db:/data/db:rw \
 -v atlassian_jira:/data/jira:rw \

@@ -34,5 +34,5 @@ alpine rm -rf \
 /data/confluence/plugins-cache \
 /data/confluence/plugins-osgi-cache \
 /data/confluence/plugins-temp \
-/data/confluence/bundled-plugins_language \
+/data/confluence/bundled-plugins_language
 ```
