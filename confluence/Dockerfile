@@ -1,9 +1,10 @@
 FROM java:8
 
 # Setup useful environment variables
+# Links at https://www.atlassian.com/software/confluence/download-archives
 ENV CONF_HOME     /var/atlassian/application-data/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
-ENV CONF_VERSION  5.10.8
+ENV CONF_VERSION  6.2.0
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.

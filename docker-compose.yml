@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 volumes:
   db: ~
   jira: ~
@@ -10,6 +10,7 @@ services:
     image: wobblecode/docker-confluence
     ports:
       - "8090:8090"
+      - "8091:8091"
     links:
       - database
     volumes:
