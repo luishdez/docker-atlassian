@@ -4,7 +4,7 @@ FROM java:8
 # Links at https://www.atlassian.com/software/confluence/download-archives
 ENV CONF_HOME     /var/atlassian/application-data/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
-ENV CONF_VERSION  6.2.0
+ENV CONF_VERSION  6.2.1
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
@@ -49,6 +49,7 @@ USER daemon:daemon
 
 # Expose default HTTP connector port.
 EXPOSE 8090
+EXPOSE 8091
 
 # Set volume mount points for installation and home directory. Changes to the
 # home directory needs to be persisted as well as parts of the installation
@@ -57,6 +58,9 @@ VOLUME ["/var/atlassian/confluence"]
 
 # Set the default working directory as the Confluence home directory.
 WORKDIR ${CONF_HOME}
+
+COPY "docker-entrypoint.sh" "/"
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run Atlassian Confluence as a foreground process by default.
 CMD ["/opt/atlassian/confluence/bin/start-confluence.sh", "-fg"]
