@@ -8,9 +8,9 @@ to define your KEY IDs and settings in `.env-backup`
 ```sh
 docker run --rm \
 --env-file .env-backup \
--v atlassian_db:/data/db:ro \
--v atlassian_jira:/data/jira:ro \
--v atlassian_confluence:/data/confluence:ro \
+-v wobblecodeatlassian_db:/data/db:ro \
+-v wobblecodeatlassian_jira:/data/jira:ro \
+-v wobblecodeatlassian_confluence:/data/confluence:ro \
 --name backup helicopterizer backup --tarball
 ```
 
@@ -23,9 +23,9 @@ Then run docker as daemon
 ```sh
 docker run -d \
 --env-file .env-backup \
--v atlassian_db:/data/db:ro \
--v atlassian_jira:/data/jira:ro \
--v atlassian_confluence:/data/confluence:ro \
+-v wobblecodeatlassian_db:/data/db:ro \
+-v wobblecodeatlassian_jira:/data/jira:ro \
+-v wobblecodeatlassian_confluence:/data/confluence:ro \
 --name backup frekele/helicopterizer backup --tarball
 ```
 
@@ -39,8 +39,8 @@ If you use another project name just change the name of the mounted volumes.
 docker run --rm \
 --env-file .env-backup \
 -e CLEAN_DATA_BEFORE_RESTORE=false \
--v atlassian_db:/data/db:rw \
--v atlassian_jira:/data/jira:rw \
--v atlassian_confluence:/data/confluence:rw \
+-v wobblecodeatlassian_db:/data/db:rw \
+-v wobblecodeatlassian_jira:/data/jira:rw \
+-v wobblecodeatlassian_confluence:/data/confluence:rw \
 --name backup frekele/helicopterizer:latest restore --tarball
 ```

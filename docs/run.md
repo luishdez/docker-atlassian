@@ -6,13 +6,13 @@ Copy from .env.dist to `.env` and config your env vars. Do the same for
 ## Run
 
 ```sh
-docker-compose -p atlassian up -d
+docker-compose -p wobblecodeatlassian up -d
 ```
 
 ## Run with nginx
 
 ```sh
-docker-compose -f docker-compose.yml -f docker-compose.nginx.yml -p atlassian up -d
+docker-compose -f docker-compose.yml -f docker-compose.nginx.yml -p wobblecodeatlassian up -d
 ```
 
 ## Build the images
