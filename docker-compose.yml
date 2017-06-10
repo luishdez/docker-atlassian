@@ -22,6 +22,10 @@ services:
     environment:
       JAVA_OPTS: -Xms384m -Xmx1024m
       CATALINA_OPTS: -Datlassian.plugins.enable.wait=1200
+      X_PROXY_SCHEME: https
+      X_PROXY_PORT: 443
+      X_PROXY_NAME: jira.wobblecode.com
+      X_PATH: /
     ports:
       - "8080:8080"
     links:
