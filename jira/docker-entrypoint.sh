@@ -4,17 +4,20 @@
 # Docker image. If the file has been changed the entrypoint script will not
 # perform modifications to the configuration file.
 
-echo "Executing docker entrypoint"
+echo "Executing docker entrypoint jira"
 
 if [ -n "${X_PROXY_NAME}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8080"]/@proxyName' "${JIRA_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8080"]' --type "attr" --name "proxyName" --value "${X_PROXY_NAME}" "${JIRA_INSTALL}/conf/server.xml"
 fi
 
 if [ -n "${X_PROXY_PORT}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8080"]/@proxyPort' "${JIRA_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8080"]' --type "attr" --name "proxyPort" --value "${X_PROXY_PORT}" "${JIRA_INSTALL}/conf/server.xml"
 fi
 
 if [ -n "${X_PROXY_SCHEME}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8080"]/@scheme' "${JIRA_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8080"]' --type "attr" --name "scheme" --value "${X_PROXY_SCHEME}" "${JIRA_INSTALL}/conf/server.xml"
 fi
 

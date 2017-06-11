@@ -4,21 +4,25 @@
 # Docker image. If the file has been changed the entrypoint script will not
 # perform modifications to the configuration file.
 
-echo "Executing docker entrypoint"
+echo "Executing docker entrypoint for confluence"
 
 if [ -n "${X_PROXY_NAME}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8090"]/@proxyName' "${CONF_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8090"]' --type "attr" --name "proxyName" --value "${X_PROXY_NAME}" "${CONF_INSTALL}/conf/server.xml"
 fi
 
 if [ -n "${X_PROXY_PORT}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8090"]/@proxyPort' "${CONF_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8090"]' --type "attr" --name "proxyPort" --value "${X_PROXY_PORT}" "${CONF_INSTALL}/conf/server.xml"
 fi
 
 if [ -n "${X_PROXY_SCHEME}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8090"]/@scheme' "${CONF_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8090"]' --type "attr" --name "scheme" --value "${X_PROXY_SCHEME}" "${CONF_INSTALL}/conf/server.xml"
 fi
 
 if [ -n "${X_PROXY_SECURE}" ]; then
+  xmlstarlet ed --inplace -d '//Connector[@port="8090"]/@secure' "${CONF_INSTALL}/conf/server.xml"
   xmlstarlet ed --inplace --pf --ps --insert '//Connector[@port="8090"]' --type "attr" --name "secure" --value "${X_PROXY_SECURE}" "${CONF_INSTALL}/conf/server.xml"
 fi
 
