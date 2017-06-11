@@ -18,7 +18,7 @@ services:
     environment:
       X_PROXY_SCHEME: https
       X_PROXY_PORT: 443
-      X_PROXY_NAME: jira.wobblecode.com
+      X_PROXY_NAME: confluence.wobblecode.com
       X_SECURE: "true"
       X_PATH: /
   jira:
