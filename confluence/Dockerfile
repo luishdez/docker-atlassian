@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8u121
 
 # Setup useful environment variables
 # Links at https://www.atlassian.com/software/confluence/download-archives
