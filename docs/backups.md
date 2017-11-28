@@ -11,7 +11,7 @@ docker run --rm \
 -v wobblecodeatlassian_db:/data/db:ro \
 -v wobblecodeatlassian_jira:/data/jira:ro \
 -v wobblecodeatlassian_confluence:/data/confluence:ro \
---name backup helicopterizer backup --tarball
+--name backup frekele/helicopterizer backup --tarball
 ```
 
 ## Run with schedule
