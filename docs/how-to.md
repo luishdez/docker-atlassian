@@ -1,5 +1,11 @@
 # How to
 
+## Restart Docker
+
+```sh
+docker-compose -p wobblecodeatlassian restart
+```
+
 ## Run shell with volumes
 
 ```sh
