@@ -7,7 +7,8 @@ volumes:
 services:
   bamboo:
     restart: always
-    image: cptactionhank/atlassian-bamboo:latest
+    build: ./bamboo
+    image: wobblecode/docker-bamboo
     ports:
       - "8085:8085"
     links:
