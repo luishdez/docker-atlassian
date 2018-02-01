@@ -9,5 +9,6 @@ services:
     links:
       - jira
       - confluence
+      - bamboo
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf

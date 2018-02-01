@@ -3,7 +3,23 @@ volumes:
   db: ~
   jira: ~
   confluence: ~
+  bamboo: ~
 services:
+  bamboo:
+    restart: always
+    image: cptactionhank/atlassian-bamboo:latest
+    ports:
+      - "8085:8085"
+    links:
+      - database
+    volumes:
+      - services:/var/atlassian/application-data/services
+    environment:
+      X_PROXY_SCHEME: https
+      X_PROXY_PORT: 443
+      X_PROXY_NAME: bamboo.wobblecode.com
+      X_SECURE: "true"
+      X_PATH: /
   confluence:
     restart: always
     build: ./confluence
