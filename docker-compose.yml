@@ -13,7 +13,7 @@ services:
     links:
       - database
     volumes:
-      - services:/var/atlassian/application-data/services
+      - bamboo:/var/atlassian/application-data/bamboo
     environment:
       X_PROXY_SCHEME: https
       X_PROXY_PORT: 443
