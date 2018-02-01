@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "******CREATING confluence DATABASE******"
-gosu postgres psql --username postgres <<- EOSQL
+psql --username postgres <<- EOSQL
    CREATE DATABASE confluence WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' \
        TEMPLATE template0;
    CREATE USER confluence;
@@ -12,9 +12,9 @@ echo ""
 
 if [ -r '/tmp/dumps/confluence.dump' ]; then
     echo "**IMPORTING confluence DATABASE BACKUP**"
-    gosu postgres postgres &
+    postgres &
     SERVER=$!; sleep 2
-    gosu postgres psql confluence < /tmp/dumps/confluence.dump
+    psql confluence < /tmp/dumps/confluence.dump
     kill $SERVER; wait $SERVER
     echo "**confluence DATABASE BACKUP IMPORTED***"
 fi

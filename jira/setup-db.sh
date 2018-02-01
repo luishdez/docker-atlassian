@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "******CREATING JIRA DATABASE******"
-gosu postgres psql --username postgres <<- EOSQL
+psql --username postgres <<- EOSQL
    CREATE DATABASE jira WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' \
        TEMPLATE template0;
    CREATE USER jira;
@@ -12,9 +12,9 @@ echo ""
 
 if [ -r '/tmp/dumps/jira.dump' ]; then
     echo "**IMPORTING JIRA DATABASE BACKUP**"
-    gosu postgres postgres &
+    postgres &
     SERVER=$!; sleep 2
-    gosu postgres psql jira < /tmp/dumps/jira.dump
+    psql jira < /tmp/dumps/jira.dump
     kill $SERVER; wait $SERVER
     echo "**JIRA DATABASE BACKUP IMPORTED***"
 fi

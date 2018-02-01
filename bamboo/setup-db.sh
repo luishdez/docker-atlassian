@@ -1,8 +1,7 @@
 #!/bin/bash
 echo "******CREATING BAMBOO DATABASE******"
-gosu postgres psql --username postgres <<- EOSQL
-   CREATE DATABASE bamboo WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' \
-       TEMPLATE template0;
+psql --username postgres <<- EOSQL
+   CREATE DATABASE bamboo WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0;
    CREATE USER bamboo;
    GRANT ALL PRIVILEGES ON DATABASE bamboo to bamboo;
 EOSQL
@@ -12,9 +11,9 @@ echo ""
 
 if [ -r '/tmp/dumps/bamboo.dump' ]; then
     echo "**IMPORTING BAMBOO DATABASE BACKUP**"
-    gosu postgres postgres &
+    postgres &
     SERVER=$!; sleep 2
-    gosu postgres psql bamboo < /tmp/dumps/bamboo.dump
+    psql bamboo < /tmp/dumps/bamboo.dump
     kill $SERVER; wait $SERVER
     echo "**BAMBOO DATABASE BACKUP IMPORTED***"
 fi
