@@ -75,6 +75,10 @@ RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.i
 		sed -i "s|;*post_max_size =.*|post_max_size = ${PHP_MAX_POST}|i" /etc/php7/php.ini && \
 		sed -i "s|;*cgi.fix_pathinfo=.*|cgi.fix_pathinfo= 0|i" /etc/php7/php.ini
 
+RUN	apk add docker \
+	 	&& curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose \
+		&& chmod +x /usr/local/bin/docker-compose
+
 RUN	apk add nodejs
 
 RUN apk add --update \
@@ -88,7 +92,7 @@ RUN apk add --update \
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
 # here we only ever run one process anyway.
-USER daemon:daemon
+# USER daemon:daemon
 
 # Expose default HTTP and SSH ports.
 EXPOSE 8085 54663
