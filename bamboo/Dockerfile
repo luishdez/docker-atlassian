@@ -81,9 +81,9 @@ RUN apk add --update \
     python \
     python-dev \
     py-pip \
-    build-base
-
-RUN pip install ansible
+    libffi \
+    build-base \
+		ansible
 
 # Use the default unprivileged account. This could be considered bad practice
 # on systems where multiple processes end up being executed by 'daemon' but
