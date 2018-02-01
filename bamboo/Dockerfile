@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 
 # Setup useful environment variables
-ENV BAMBOO_HOME     /var/atlassian/bamboo
+ENV BAMBOO_HOME     /var/atlassian/application-data/bamboo
 ENV BAMBOO_INSTALL  /opt/atlassian/bamboo
 ENV BAMBOO_VERSION  6.3.1
 
