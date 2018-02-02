@@ -31,7 +31,7 @@ ENV MAX_UPLOAD          500M
 ENV PHP_MAX_FILE_UPLOAD 200M
 ENV PHP_MAX_POST        200M
 
-RUN	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
 		apk update && \
 		apk upgrade && \
 		apk add --update tzdata && \
