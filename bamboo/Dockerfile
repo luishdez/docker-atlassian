@@ -95,9 +95,8 @@ RUN apk add --update \
     py-pip \
     libffi \
     build-base \
-		ansible
-
-RUN pip install awscli --upgrade --user
+		ansible \
+		aws-cli
 
 RUN	apk add docker \
 	 	&& pip install -U docker-compose
