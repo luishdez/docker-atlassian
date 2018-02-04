@@ -16,6 +16,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - bamboo:/var/atlassian/application-data/bamboo
+      - ./bamboo/ssh:/.ssh  
     environment:
       X_PROXY_SCHEME: https
       X_PROXY_PORT: 443
