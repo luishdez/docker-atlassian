@@ -45,6 +45,8 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 			php7-gmp \
 			php7-pdo_odbc \
 			php7-json \
+			php7-intl \
+			php7-pcntl \
 			php7-dom \
 			php7-pdo \
 			php7-zip \
@@ -59,15 +61,20 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 			php7-odbc \
 			php7-pdo_mysql \
 			php7-pdo_sqlite \
+			php7-sockets \
+			php7-pgsql \
+			php7-ssh2 \
 			php7-gettext \
 			php7-xmlreader \
 			php7-xmlrpc \
+      php7-xdebug \
 			php7-bz2 \
 			php7-iconv \
 			php7-pdo_dblib \
 			php7-curl \
 			php7-ctype \
       php7-phar \
+			php7-tokenizer \
       php7-mbstring
 
 RUN sed -i "s|;*date.timezone =.*|date.timezone = ${TIMEZONE}|i" /etc/php7/php.ini && \
