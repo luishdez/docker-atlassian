@@ -65,8 +65,11 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
 			php7-pgsql \
 			php7-ssh2 \
 			php7-gettext \
-			php7-xmlreader \
+      php7-xml \
+			php7-xml \
+			php7-xmlwriter \
 			php7-xmlrpc \
+			php7-simplexml \
       php7-xdebug \
 			php7-bz2 \
 			php7-iconv \
