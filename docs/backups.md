@@ -21,7 +21,7 @@ Define in your .env-backup a var for cron Eg: `CRON_SCHEDULE='0 */12 * * *'`
 Then run docker as daemon
 
 ```sh
-docker run -d \
+docker run --rm -d \
 --env-file .env-backup \
 -v wobblecodeatlassian_db:/data/db:ro \
 -v wobblecodeatlassian_jira:/data/jira:ro \
