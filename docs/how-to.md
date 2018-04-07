@@ -3,16 +3,16 @@
 ## Restart Docker
 
 ```sh
-docker-compose -p wobblecodeatlassian restart
+docker-compose -p atlassian restart
 ```
 
 ## Run shell with volumes
 
 ```sh
 docker run -it \
--v wobblecodeatlassian_db:/data/db:rw \
--v wobblecodeatlassian_jira:/data/jira:rw \
--v wobblecodeatlassian_confluence:/data/confluence:rw \
+-v atlassian_db:/data/db:rw \
+-v atlassian_jira:/data/jira:rw \
+-v atlassian_confluence:/data/confluence:rw \
 alpine /bin/sh
 ```
 
@@ -20,9 +20,9 @@ alpine /bin/sh
 
 ```sh
 docker run -it \
--v wobblecodeatlassian_db:/data/db:rw \
--v wobblecodeatlassian_jira:/data/jira:rw \
--v wobblecodeatlassian_confluence:/data/confluence:rw \
+-v atlassian_db:/data/db:rw \
+-v atlassian_jira:/data/jira:rw \
+-v atlassian_confluence:/data/confluence:rw \
 alpine rm -rf \
 /data/jira/plugins/.bundled-plugins \
 /data/jira/plugins/.osgi-plugins
@@ -32,9 +32,9 @@ alpine rm -rf \
 
 ```sh
 docker run -it \
--v wobblecodeatlassian_db:/data/db:rw \
--v wobblecodeatlassian_jira:/data/jira:rw \
--v wobblecodeatlassian_confluence:/data/confluence:rw \
+-v atlassian_db:/data/db:rw \
+-v atlassian_jira:/data/jira:rw \
+-v atlassian_confluence:/data/confluence:rw \
 alpine rm -rf \
 /data/confluence/bundled-plugins \
 /data/confluence/plugins-cache \
