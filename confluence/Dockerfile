@@ -4,7 +4,7 @@ FROM openjdk:8u121
 # Links at https://www.atlassian.com/software/confluence/download-archives
 ENV CONF_HOME     /var/atlassian/application-data/confluence
 ENV CONF_INSTALL  /opt/atlassian/confluence
-ENV CONF_VERSION  6.5.1
+ENV CONF_VERSION  6.8.0
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
