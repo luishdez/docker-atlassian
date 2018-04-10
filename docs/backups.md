@@ -11,6 +11,7 @@ docker run --rm \
 -v atlassian_db:/data/db:ro \
 -v atlassian_jira:/data/jira:ro \
 -v atlassian_confluence:/data/confluence:ro \
+-v atlassian_bamboo:/data/bamboo:ro \
 --name backup frekele/helicopterizer backup --tarball
 ```
 
@@ -26,6 +27,7 @@ docker run --rm -d \
 -v atlassian_db:/data/db:ro \
 -v atlassian_jira:/data/jira:ro \
 -v atlassian_confluence:/data/confluence:ro \
+-v atlassian_bamboo:/data/bamboo:ro \
 --name backup frekele/helicopterizer backup --tarball
 ```
 
@@ -42,5 +44,6 @@ docker run --rm \
 -v atlassian_db:/data/db:rw \
 -v atlassian_jira:/data/jira:rw \
 -v atlassian_confluence:/data/confluence:rw \
+-v atlassian_bamboo:/data/bamboo:rw \
 --name backup frekele/helicopterizer:latest restore --tarball
 ```
